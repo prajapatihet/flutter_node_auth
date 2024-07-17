@@ -3,22 +3,9 @@ const mongoose = require('mongoose');
 const authRouter = require('./routes/auth');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
-const cookieParser = require('cookie-parser')
 const PORT = process.env.PORT || 3000;
 const app = express();
 
-// app.use(express.json());
-// const corsOptions = {
-//     origin: '*', // Allow all origins
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allow these methods
-//     preflightContinue: false,
-//     optionsSuccessStatus: 204,
-//     allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
-// };
-
-// app.use(cors(corsOptions));
-// // app.options('*', cors());
 app.use(express.json());
 app.use(
     express.urlencoded({
@@ -26,8 +13,6 @@ app.use(
     })
 );
 app.use(bodyParser.json());
-
-// app.use(cookieParser());
 app.use(
     cors({
         origin: "*",
