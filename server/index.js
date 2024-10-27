@@ -5,6 +5,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
+require('dotenv').config();
+
 
 app.use(express.json());
 app.use(
@@ -21,7 +23,7 @@ app.use(
     })
 );
 
-const DB = "mongodb+srv://het:TlemRd6UQAPpnjf5@cluster0.ohgvqsu.mongodb.net/?retryWrites=true&w=majority"
+const DB = process.env.MONGODB_URL;
 
 mongoose
     .connect(DB)
